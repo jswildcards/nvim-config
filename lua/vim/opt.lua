@@ -18,9 +18,17 @@ vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars:append {
   eol = '↵',
-  tab = '▶ ',
-  trail = '▓',
-  space = '·'
+  tab = '┠─',
+  trail = '█',
+  space = '·',
+  leadmultispace = '▏·',
+}
+vim.opt.fillchars:append {
+  eob = ' ',
+  foldclose = '▸',
+  foldopen = '▾',
+  foldsep = '│',
+  fold = ' ',
 }
 
 vim.opt.updatetime = 100
