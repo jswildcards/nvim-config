@@ -7,10 +7,8 @@ return {
 
     bufferline.setup({
       options = {
-        show_close_icon = false,
-        show_buffer_close_icon = false,
-        buffer_close_icon = '',
-        close_icon = '',
+        show_buffer_close_icons = false,
+        numbers = 'buffer_id',
       },
     })
   end,
