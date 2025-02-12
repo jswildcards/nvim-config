@@ -10,6 +10,8 @@ return {
     lualine.setup({
       options = {
         winbar = true,
+        section_separators = '',
+        component_separators = '',
       },
       sections = {
         lualine_c = {{ 'filename', path = 1 }},
@@ -17,7 +19,11 @@ return {
       winbar = {
         lualine_a = {{ 'navic', color_correction = nil, navic_opts = nil }},
         lualine_x = {{ 'filename', path = 1 }},
-      }
+      },
+      inactive_winbar = {
+        lualine_a = {{ 'navic', color_correction = nil, navic_opts = nil }},
+        lualine_x = {{ 'filename', path = 1 }},
+      },
     })
   end,
 }

@@ -9,6 +9,17 @@ return {
   config = function()
     local telescope = require("telescope")
     telescope.setup({
+      defaults = {
+        prompt_prefix = "▸ ",
+        selection_caret = "",
+        entry_prefix = "",
+        layout_strategy = "vertical",
+        layout_config = {
+          width = { padding = 0 },
+          height = { padding = 0 },
+          preview_height = 0.75,
+        },
+      },
       extensions = {
         fzf = {
           fuzzy = true,
@@ -18,6 +29,17 @@ return {
         }
       }
     })
+    vim.cmd [[
+      highlight TelescopePromptNormal guibg=#3c3836
+      highlight TelescopePromptBorder guifg=#3c3836 guibg=#3c3836
+      highlight TelescopePromptTitle guifg=#3c3836 guibg=#3c3836
+      highlight TelescopeResultsNormal guibg=#282828
+      highlight TelescopeResultsBorder guifg=#282828 guibg=#282828
+      highlight TelescopeResultsTitle guifg=#282828 guibg=#282828
+      highlight TelescopePreviewNormal guibg=#1d2021
+      highlight TelescopePreviewBorder guifg=#1d2021 guibg=#1d2021
+      highlight TelescopePreviewTitle guifg=#1d2021 guibg=#1d2021
+    ]]
   end,
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<cr>" },
