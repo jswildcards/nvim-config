@@ -6,7 +6,6 @@ return {
   },
   config = function()
     local lspconfig = require("lspconfig")
-    local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local navic = require("nvim-navic")
 
@@ -26,17 +25,18 @@ return {
       end
     })
 
+    local servers = { 'ts_ls' }
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            navic.attach(client, bufnr)
-          end
-        })
-      end,
-    })
+    for _, server in ipairs(servers) do
+      vim.lsp.config[server] = {
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          navic.attach(client, bufnr)
+        end
+      }
+
+      vim.lsp.enable('ts_ls')
+    end
   end
 }

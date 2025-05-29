@@ -50,7 +50,9 @@ vim.opt.splitbelow = true
 -- fold
 function _G.foldtext()
   local line = vim.fn.getline(vim.v.foldstart)
-  return line
+  local tabstop = vim.o.tabstop
+  local spaces = string.rep(' ', tabstop)
+  return line:gsub('\t', spaces) .. " ..."
 end
 
 vim.opt.foldmethod = 'expr'
@@ -84,3 +86,16 @@ function _G.get_statuscol()
 end
 
 vim.opt.statuscolumn = '%!v:lua.get_statuscol()'
+
+-- sign
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚",
+      [vim.diagnostic.severity.WARN] = "󰀪",
+      [vim.diagnostic.severity.HINT] = "󰌶",
+      [vim.diagnostic.severity.INFO] = "󰌶",
+    }
+  }
+})

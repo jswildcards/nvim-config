@@ -19,6 +19,7 @@ return {
         "yaml",
         "html",
         "css",
+        "xml",
       },
     })
   end,
