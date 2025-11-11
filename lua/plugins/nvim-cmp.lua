@@ -62,10 +62,28 @@ return {
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = cmp.mapping.preset.cmdline({
+        ["<Tab>"] = function(fallback)
+          local line = vim.fn.getcmdline()
+          if line:find("%%") then
+            local expanded = vim.fn.expand("%:p")
+            if expanded ~= "" then
+              -- Insert expanded text into cmdline
+              vim.fn.feedkeys(expanded .. " ", "n")
+              return
+            end
+          end
+          -- If cmp has an item selected, confirm; otherwise fallback
+          if cmp.visible() then
+            cmp.confirm({ select = true })
+          else
+            fallback()
+          end
+        end,
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+      }),
       sources = cmp.config.sources({
-        { name = 'path' }
-      }, {
+        { name = 'path' },
         { name = 'cmdline' }
       }),
       matching = { disallow_symbol_nonprefix_matching = false }
