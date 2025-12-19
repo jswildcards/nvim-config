@@ -4,21 +4,30 @@ return {
     local gitsigns = require("gitsigns")
 
     gitsigns.setup({
+      preview_config = {
+        border = { '' },
+        relative = 'cursor',
+        width = vim.o.columns,
+        row = 1,
+        col = 0,
+      },
+      signcolumn = false,
+      linehl = true,
       signs = {
-        add          = { text = '█' },
-        change       = { text = '█' },
-        delete       = { text = '█' },
-        topdelete    = { text = '█' },
-        changedelete = { text = '█' },
-        untracked    = { text = '█' },
+        add          = { text = '▏' },
+        change       = { text = '▏' },
+        delete       = { text = '▏' },
+        topdelete    = { text = '▏' },
+        changedelete = { text = '▏' },
+        untracked    = { text = '▏' },
       },
       signs_staged = {
-        add          = { text = '█' },
-        change       = { text = '█' },
-        delete       = { text = '█' },
-        topdelete    = { text = '█' },
-        changedelete = { text = '█' },
-        untracked    = { text = '█' },
+        add          = { text = '▏' },
+        change       = { text = '▏' },
+        delete       = { text = '▏' },
+        topdelete    = { text = '▏' },
+        changedelete = { text = '▏' },
+        untracked    = { text = '▏' },
       },
       current_line_blame = true,
       current_line_blame_formatter = function(name, blame_info)

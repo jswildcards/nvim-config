@@ -8,11 +8,24 @@ return {
   },
   config = function()
     local telescope = require("telescope")
+    local builtin = require("telescope.builtin")
+
+    local function setup_defaults(fn)
+      return function(opts)
+        opts = opts or {}
+        opts.results_title = ""
+        opts.prompt_title = ""
+        opts.preview_title = ""
+        fn(opts)
+      end
+    end
+
     telescope.setup({
       defaults = {
         prompt_prefix = "▸ ",
         selection_caret = "",
         entry_prefix = "",
+        borderchars = { " ", " ", " ", " ", " ", " ", " ", " ", },
         layout_strategy = "vertical",
         layout_config = {
           width = { padding = 0 },
@@ -29,22 +42,10 @@ return {
         }
       }
     })
-    vim.cmd [[
-      highlight TelescopePromptNormal guibg=#3c3836
-      highlight TelescopePromptBorder guifg=#3c3836 guibg=#3c3836
-      highlight TelescopePromptTitle guifg=#3c3836 guibg=#3c3836
-      highlight TelescopeResultsNormal guibg=#282828
-      highlight TelescopeResultsBorder guifg=#282828 guibg=#282828
-      highlight TelescopeResultsTitle guifg=#282828 guibg=#282828
-      highlight TelescopePreviewNormal guibg=#1d2021
-      highlight TelescopePreviewBorder guifg=#1d2021 guibg=#1d2021
-      highlight TelescopePreviewTitle guifg=#1d2021 guibg=#1d2021
-    ]]
+
+    vim.keymap.set("n", "<leader>ff", setup_defaults(builtin.find_files), { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>fg", setup_defaults(builtin.live_grep), { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>fh", setup_defaults(builtin.git_status), { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>fb", setup_defaults(builtin.buffers), { noremap = true, silent = true })
   end,
-  keys = {
-    { "<leader>ff", "<cmd>Telescope find_files<cr>" },
-    { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
-    { "<leader>fh", "<cmd>Telescope git_status<cr>" },
-    { "<leader>fb", "<cmd>Telescope buffers<cr>" },
-  }
 }

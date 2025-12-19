@@ -43,9 +43,9 @@ local config = {
   root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
 
   -- Attach other plugins or custom behavior here
-  on_attach = function(client, bufnr)
-    require("nvim-navic").attach(client, bufnr)
-  end,
+  -- on_attach = function(client, bufnr)
+  --   require("nvim-navic").attach(client, bufnr)
+  -- end,
 }
 
 -- Start or attach JDTLS using your configuration.

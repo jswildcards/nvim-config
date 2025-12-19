@@ -7,7 +7,7 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
-    local navic = require("nvim-navic")
+    -- local navic = require("nvim-navic")
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -31,9 +31,9 @@ return {
     for _, server in ipairs(servers) do
       vim.lsp.config[server] = {
         capabilities = capabilities,
-        on_attach = function(client, bufnr)
-          navic.attach(client, bufnr)
-        end
+        -- on_attach = function(client, bufnr)
+        --   navic.attach(client, bufnr)
+        -- end
       }
 
       vim.lsp.enable('ts_ls')
