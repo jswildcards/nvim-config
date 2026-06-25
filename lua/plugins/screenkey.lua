@@ -1,0 +1,84 @@
+return {
+  -- "NStefan002/screenkey.nvim",
+  -- config = function()
+  --   local screenkey = require('screenkey')
+
+  --   screenkey.setup({
+  --     win_opts = {
+  --       focusable = false,
+  --       relative = "cursor",
+  --       style = "minimal",
+  --       border = "double",
+  --       height = 1,
+  --       row = -3,
+  --       col = 5,
+  --       zindex = 200,
+  --       title = "",
+  --       width = 5,
+  --     },
+  --     hl_groups = {
+  --       ["screenkey.hl.key"] = { link = "Normal" },
+  --       ["screenkey.hl.map"] = { link = "Normal" },
+  --       ["screenkey.hl.sep"] = { link = "Normal" },
+  --     },
+  --     winblend = 0,
+  --     compress_after = 3,
+  --     clear_after = 3,
+  --     emit_events = true,
+  --     disable = {
+  --       filetypes = {},
+  --       buftypes = {},
+  --       modes = {},
+  --     },
+  --     show_leader = true,
+  --     group_mappings = false,
+  --     display_infront = {},
+  --     display_behind = {},
+  --     filter = function(keys)
+  --       return keys
+  --     end,
+  --     colorize = function(keys)
+  --       return keys
+  --     end,
+  --     separator = " ",
+  --     keys = {
+  --       ["<TAB>"] = "󰌒",
+  --       ["<CR>"] = "󰌑",
+  --       ["<ESC>"] = "Esc",
+  --       ["<SPACE>"] = "␣",
+  --       ["<BS>"] = "󰌥",
+  --       ["<DEL>"] = "Del",
+  --       ["<LEFT>"] = "",
+  --       ["<RIGHT>"] = "",
+  --       ["<UP>"] = "",
+  --       ["<DOWN>"] = "",
+  --       ["<HOME>"] = "Home",
+  --       ["<END>"] = "End",
+  --       ["<PAGEUP>"] = "PgUp",
+  --       ["<PAGEDOWN>"] = "PgDn",
+  --       ["<INSERT>"] = "Ins",
+  --       ["<F1>"] = "󱊫",
+  --       ["<F2>"] = "󱊬",
+  --       ["<F3>"] = "󱊭",
+  --       ["<F4>"] = "󱊮",
+  --       ["<F5>"] = "󱊯",
+  --       ["<F6>"] = "󱊰",
+  --       ["<F7>"] = "󱊱",
+  --       ["<F8>"] = "󱊲",
+  --       ["<F9>"] = "󱊳",
+  --       ["<F10>"] = "󱊴",
+  --       ["<F11>"] = "󱊵",
+  --       ["<F12>"] = "󱊶",
+  --       ["CTRL"] = "Ctrl",
+  --       ["ALT"] = "Alt",
+  --       ["SUPER"] = "󰘳",
+  --       ["<leader>"] = "<leader>",
+  --     },
+  --     notify_method = "echo",
+  --     log = {
+  --       min_level = vim.log.levels.OFF,
+  --       filepath = vim.fn.stdpath("data") .. "/screenkey_log",
+  --     },
+  --   })
+  -- end,
+}

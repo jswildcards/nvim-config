@@ -31,12 +31,9 @@ return {
     for _, server in ipairs(servers) do
       vim.lsp.config[server] = {
         capabilities = capabilities,
-        -- on_attach = function(client, bufnr)
-        --   navic.attach(client, bufnr)
-        -- end
       }
 
-      vim.lsp.enable('ts_ls')
+      vim.lsp.enable(server)
     end
   end
 }

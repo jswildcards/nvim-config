@@ -11,7 +11,7 @@ vim.opt.sidescrolloff = 10
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'yes:1'
 
 vim.opt.showmode = false
 vim.opt.cursorline = true
@@ -115,10 +115,10 @@ vim.diagnostic.config({
   virtual_text = true,
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "󰅚",
-      [vim.diagnostic.severity.WARN] = "󰀪",
-      [vim.diagnostic.severity.HINT] = "󰌶",
-      [vim.diagnostic.severity.INFO] = "󰌶",
+      [vim.diagnostic.severity.ERROR] = "█", -- 󰅚
+      [vim.diagnostic.severity.WARN]  = "▌", -- 󰀪
+      [vim.diagnostic.severity.HINT]  = "▏", -- 󰌶
+      [vim.diagnostic.severity.INFO]  = "▏", -- 󰌶
     },
     numhl = {
       [vim.diagnostic.severity.ERROR] = "DiagnosticError",
@@ -130,6 +130,7 @@ vim.diagnostic.config({
 })
 
 -- clipboard
+vim.opt.clipboard:append("unnamed")
 vim.opt.clipboard:append("unnamedplus")
 
 -- keycast
